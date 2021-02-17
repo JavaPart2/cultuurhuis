@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="nl" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head(title)">
+    <meta charset="UTF-8">
+    <link rel="icon" th:href="@{/images/cultuurhuis.ico}" type="image/x-icon">
+    <title th:text="${title}"></title>
+    <link rel="stylesheet" th:href="@{/css/cultuurhuis.css}">
+</head>
+<body>
+<div>
+    <nav th:fragment="menu">
+        <ul>
+            <li><a class="nav" th:href="@{/}">Voorstellingen</a></li>
+<!--            <li th:if="${mandje.gevuld}"><a th:href="@{/mandje}">Mandje</a></li>-->
+        </ul>
+    </nav>
+</div>
+</body>
+</html>

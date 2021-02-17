@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="nl" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments::head(title='Cultuurhuis')"></head>
+<body>
+<nav th:replace="fragments::menu"></nav>
+<div th:object="${voorstelling}">
+    <h1 th:text="|*{titel} - *{uitvoerders}|">
+        <img src="images/reserveren.png" th:src="@{/images/reserveren.png}" alt="culthuis" >
+    </h1>
+    <label>Voorstelling</label>
+    <br>
+    <span th:text="*{titel}"></span>
+    <br>
+    <label>Uitvoerders</label>
+    <br>
+    <span th:text="*{uitvoerders}"></span>
+    <br>
+    <label>Datum</label>
+    <br>
+    <span th:text="*{datum}"></span>
+    <br>
+    <label>Prijs</label>
+    <br>
+    <span th:text="*{{prijs}}"></span>
+    <br>
+    <label>Vrije plaatsen</label>
+    <br>
+    <span th:text="*{vrijeplaatsen}"></span>
+    <br>
+
+    <form method="get" th:object="${reservatie}"
+          th:action="@{/mandje/{id} (id=${voorstelling.id})}">
+        <label>Plaatsen
+            <input th:field="*{plaatsen}" type="number" autofocus required min="1">
+        </label>
+        <span th:errors="*{plaatsen}"></span>
+        <button>Reserveren</button>
+    </form>
+
+</div>
+
+</body>
+</html>

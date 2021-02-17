@@ -30,7 +30,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception{
         http.formLogin(login -> login.loginPage("/login"));
         http.authorizeRequests(requests -> requests
-                .mvcMatchers("/","/login").permitAll()
+                .mvcMatchers("/","/login","/genres/**","/reserveren/**","/mandje/**").permitAll()
                 .mvcMatchers("/**").authenticated());
     }
 

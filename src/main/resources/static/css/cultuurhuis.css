@@ -1,0 +1,74 @@
+body {
+    font-family: sans-serif;
+    background-color: moccasin;
+    color: #40111F;
+}
+
+nav ul {
+    padding: 0.4em 0;
+    background-color: moccasin;
+}
+
+nav li {
+    display: inline;
+    background-color: moccasin;
+}
+
+nav li a {
+    vertical-align: middle;
+    background-color: moccasin;
+    margin-right: 1em;
+}
+
+nav li a:hover {
+    color: lightblue;
+}
+
+ul {
+    list-style-type: none;
+    text-decoration: none;
+    width: 25em;
+}
+
+ul[class="fliflop"] > li a {
+    text-decoration: none;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 0.9em;
+}
+
+input, button {
+    display: block;
+    margin-bottom: 1em;
+    margin-top: 0.2em;
+}
+
+table{
+    background-color: transparent;
+}
+
+tfoot {
+    font-weight: bold;
+}
+
+.prijs {
+    text-align: right;
+}
+
+tbody > tr:nth-child(even) {
+    background-color: gold;
+}
+
+tbody > tr:nth-child(odd) {
+    background-color: lavender;
+}
+
+ul[class="fliflop"] > li:nth-child(even){
+    background-color: gold;
+}
+
+ul[class="fliflop"] > li:nth-child(odd) {
+    background-color: lavender;
+}
