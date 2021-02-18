@@ -28,12 +28,12 @@
     <span th:text="*{vrijeplaatsen}"></span>
     <br>
 
-    <form method="get" th:object="${reservatie}"
+    <form method="get" th:object="${aantalplaatsen}"
           th:action="@{/mandje/{id} (id=${voorstelling.id})}">
         <label>Plaatsen
-            <input th:field="*{plaatsen}" type="number" autofocus required min="1">
+            <input th:field="*{aantalPlaatsen}" type="number" autofocus required min="1">
         </label>
-        <span th:errors="*{plaatsen}"></span>
+        <span th:errors="*{aantalPlaatsen}"></span>
         <button>Reserveren</button>
     </form>
 

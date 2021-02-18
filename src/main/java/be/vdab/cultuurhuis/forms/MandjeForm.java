@@ -4,24 +4,26 @@ import be.vdab.cultuurhuis.domain.Voorstelling;
 import org.springframework.format.annotation.NumberFormat;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 public class MandjeForm {
-    private Map<Voorstelling,Integer> reserveerLijnen = new LinkedHashMap<>();
+    private List<ReserveerLijnForm> reserveerlijnen = new ArrayList<>();
     @NumberFormat(pattern = "0.00")
     private BigDecimal totaal;
 
     public MandjeForm() {
     }
 
-    public Map<Voorstelling, Integer> getReserveerLijnen() {
-        return reserveerLijnen;
+    public void voegReserveerlijnToe(ReserveerLijnForm reserveerLijn){
+        this.reserveerlijnen.add(reserveerLijn);
+        this.setTotaal(this.totaal.add(reserveerLijn.calculateLijnprijs()));
     }
 
-    public void setReserveerLijnen(Map<Voorstelling, Integer> reserveerLijnen) {
-        this.reserveerLijnen = reserveerLijnen;
+    public List<ReserveerLijnForm> getReserveerlijnen() {
+        return reserveerlijnen;
     }
 
     public BigDecimal getTotaal() {

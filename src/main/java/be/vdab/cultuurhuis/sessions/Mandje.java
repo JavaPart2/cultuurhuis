@@ -28,12 +28,28 @@ public class Mandje implements Serializable {
         return gevuld;
     }
 
+    public Boolean bevatId(long id){
+        return this.reserveerLijnen.containsKey(id);
+    }
+
+    public int geefValueVoorKey(long id){
+        if (bevatId(id)){
+            return this.reserveerLijnen.get(id);
+        } else {
+            return 0;
+        }
+    }
+
     public void voegToe(long id, int plaatsen){
         if (this.reserveerLijnen.putIfAbsent(id, plaatsen) != null){
             this.reserveerLijnen.replace(id, this.reserveerLijnen.get(id),
                     this.reserveerLijnen.get(id) + plaatsen);
         }
         this.gevuld = true;
+    }
+
+    public void verwijderReserveerlijn(long id){
+        this.reserveerLijnen.remove(id);
     }
 
     public void leegMaken() {
