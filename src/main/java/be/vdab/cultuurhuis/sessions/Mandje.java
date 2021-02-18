@@ -50,6 +50,9 @@ public class Mandje implements Serializable {
 
     public void verwijderReserveerlijn(long id){
         this.reserveerLijnen.remove(id);
+        if (this.reserveerLijnen.isEmpty()){
+            this.gevuld = false;
+        }
     }
 
     public void leegMaken() {

@@ -33,6 +33,10 @@
             </tbody>
         </table>
     </form>
+    <div class="totaal">
+        <span>Te betalen: </span>
+        <span th:text="${mandjeform.totaal}"></span>
+    </div>
 </div>
 <div th:if="not ${mandjeform}">
     <h2>Mandje is leeg</h2>

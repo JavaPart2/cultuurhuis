@@ -31,7 +31,7 @@
     <form method="get" th:object="${aantalplaatsen}"
           th:action="@{/mandje/{id} (id=${voorstelling.id})}">
         <label>Plaatsen
-            <input th:field="*{aantalPlaatsen}" type="number" autofocus required min="1">
+            <input th:field="*{aantalPlaatsen}" type="number" autofocus required min="1" th:max="${voorstelling.vrijeplaatsen}">
         </label>
         <span th:errors="*{aantalPlaatsen}"></span>
         <button>Reserveren</button>

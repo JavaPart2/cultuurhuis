@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -47,12 +48,13 @@ public class MandjeController {
                 });
             }
             modelAndView.addObject("mandjeform", mandjeForm);
+            modelAndView.addObject("mandje", mandje);
         }
         return modelAndView;
     }
 
     @PostMapping
-    public String verwijderUitMandje(@RequestParam List<Long> ids, Errors errors){
+    public String verwijderUitMandje(@RequestParam List<Long> ids, RedirectAttributes redirect){
         for (long id: ids){
             mandje.verwijderReserveerlijn(id);
         }

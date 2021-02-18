@@ -15,6 +15,7 @@ public class MandjeForm {
     private BigDecimal totaal;
 
     public MandjeForm() {
+        this.totaal = new BigDecimal(0);
     }
 
     public void voegReserveerlijnToe(ReserveerLijnForm reserveerLijn){

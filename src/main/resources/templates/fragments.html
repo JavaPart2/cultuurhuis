@@ -11,7 +11,8 @@
     <nav th:fragment="menu">
         <ul>
             <li><a class="nav" th:href="@{/}">Voorstellingen</a></li>
-<!--            <li th:if="${mandje.gevuld}"><a th:href="@{/mandje}">Mandje</a></li>-->
+            <li th:if="${mandje.gevuld}"><a th:href="@{/mandje}">Mandje</a></li>
+            <li th:if="${mandje.gevuld}"><a th:href="@{/bevestig}">Bevestigen</a></li>
         </ul>
     </nav>
 </div>
