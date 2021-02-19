@@ -7,7 +7,7 @@
     <img src="images/nieuweklant.png" th:src="@{/images/nieuweklant.png}" alt="culthuis" >
 </h1>
 
-<form method="post" th:action="@{/nieuweklant}" th:object="${klant}">
+<form method="post" th:action="@{/nieuweklant}" th:object="${nieuweKlantForm.klant}">
     <label>Voornaam
         <input th:field="*{voornaam}" type="text" autofocus required>
     </label>
@@ -33,7 +33,7 @@
         <input th:field="*{paswoord}" type="text" required>
     </label>
     <label>Herhaal passwoord
-        <input name="herhaalpas" type="text" required>
+        <input th:field="${nieuweKlantForm.herhaalPas}" type="text" required>
     </label>
     <button>OK</button>
 </form>

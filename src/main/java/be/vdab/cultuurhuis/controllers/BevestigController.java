@@ -1,5 +1,6 @@
 package be.vdab.cultuurhuis.controllers;
 
+import be.vdab.cultuurhuis.domain.Klant;
 import be.vdab.cultuurhuis.domain.Reservatie;
 import be.vdab.cultuurhuis.domain.Voorstelling;
 import be.vdab.cultuurhuis.forms.ReserveerLijnForm;
@@ -7,6 +8,7 @@ import be.vdab.cultuurhuis.repositories.KlantRepository;
 import be.vdab.cultuurhuis.repositories.ReservatieRepository;
 import be.vdab.cultuurhuis.repositories.VoorstellingRepository;
 import be.vdab.cultuurhuis.sessions.Mandje;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -36,10 +38,10 @@ public class BevestigController {
     }
 
     @GetMapping
-    public ModelAndView bevestig(){
-        ModelAndView modelAndView = new ModelAndView("bevestig");
-        return modelAndView;
-
+    public String bevestig(){
+        Klant klant = klantRepository.findByGebruikersnaam(
+                SecurityContextHolder.getContext().getAuthentication().getName()).get();
+        return "redirect:/bevestig/" + klant.getId();
     }
 
     @GetMapping("/{id}")

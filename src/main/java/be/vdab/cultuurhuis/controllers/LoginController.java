@@ -15,9 +15,9 @@ public class LoginController {
     public String login(){
         return "login";
     }
-    @PostMapping
-    public void inloggen(@RequestParam String username, @RequestParam String password){
-        SecurityContextHolder.getContext().setAuthentication(
-                new UsernamePasswordAuthenticationToken(username, password, null));
-    }
+//    @PostMapping
+//    public void inloggen(@RequestParam String username, @RequestParam String password){
+//        SecurityContextHolder.getContext().setAuthentication(
+//                new UsernamePasswordAuthenticationToken(username, password, null));
+//    }
 }

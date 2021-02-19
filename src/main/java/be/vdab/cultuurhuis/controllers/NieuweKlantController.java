@@ -1,7 +1,10 @@
 package be.vdab.cultuurhuis.controllers;
 
 import be.vdab.cultuurhuis.domain.Klant;
+import be.vdab.cultuurhuis.forms.NieuweKlantForm;
 import be.vdab.cultuurhuis.repositories.KlantRepository;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,17 +27,20 @@ public class NieuweKlantController {
     @GetMapping
     public ModelAndView nieuw(){
         ModelAndView modelAndView = new ModelAndView("nieuweklant");
-        modelAndView.addObject(new Klant());
+        modelAndView.addObject(new NieuweKlantForm(new Klant(), ""));
         return modelAndView;
     }
 
     @PostMapping
-    public String maakKlant(@Valid Klant klant, @Valid String herhaalPas){
-        if (klant.getPaswoord().equals(herhaalPas)){
-            String geencrypteerd = new BCryptPasswordEncoder().encode(herhaalPas);
-            klant.setPaswoord(geencrypteerd);
-            repository.save(klant);
-            long id = klant.getId();
+    public String maakKlant(@Valid NieuweKlantForm form){
+        if (form.getKlant().getPaswoord().equals(form.getHerhaalPas())){
+            String geencrypteerd = new BCryptPasswordEncoder().encode(form.getHerhaalPas());
+            form.getKlant().setPaswoord(geencrypteerd);
+            repository.save(form.getKlant());
+            long id = form.getKlant().getId();
+            SecurityContextHolder.getContext().setAuthentication(
+                new UsernamePasswordAuthenticationToken(form.getKlant().getGebruikersnaam(),
+                        form.getHerhaalPas(), null));
             return "redirect:/bevestig/" + id;
         } else {
             // Herhaalpas is verschillend, foutboodschap tonen
