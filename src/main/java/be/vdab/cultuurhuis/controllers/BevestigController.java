@@ -35,8 +35,15 @@ public class BevestigController {
         this.mandje = mandje;
     }
 
+    @GetMapping
+    public ModelAndView bevestig(){
+        ModelAndView modelAndView = new ModelAndView("bevestig");
+        return modelAndView;
+
+    }
+
     @GetMapping("/{id}")
-    public ModelAndView bevestig(@PathVariable long id){
+    public ModelAndView bevestigKlant(@PathVariable long id){
         ModelAndView modelAndView = new ModelAndView("bevestig");
         modelAndView.addObject("klant", klantRepository.findById(id).get());
         return modelAndView;

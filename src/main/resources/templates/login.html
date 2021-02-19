@@ -16,8 +16,8 @@
         <input name="password" type="password" required>
     </label>
     <button>Zoek me op</button>
-    <button><a th:href="@{/nieuweklant}">Ik ben nieuw</a> </button>
 </form>
+<button><a th:href="@{/nieuweklant}">Ik ben nieuw</a> </button>
 <div th:if="${param.error} != null" class="fout">Verkeerde gebruikersnaam of paswoord</div>
 
 </body>

@@ -8,7 +8,7 @@
     <img src="images/bevestig.png" th:src="@{/images/bevestig.png}" alt="culthuis" >
 </h1>
 
-<div th:if="${geluktetxn}">
+<div th:if="not ${geluktetxn.empty}">
     <h2>Gelukte reservaties</h2>
     <table>
         <thead>
@@ -26,13 +26,13 @@
             <td th:text="*{titel}"></td>
             <td th:text="*{uitvoerders}"></td>
             <td class="prijs" th:text="*{{prijs}}"></td>
-            <td th:text="${lijn.tePlaatsen}"></td>
+            <td th:text="*{vrijeplaatsen}"></td>
         </tr>
         </tbody>
     </table>
 </div>
 
-<div th:if="${misluktetxn}">
+<div th:if="not ${misluktetxn.empty}">
     <h2>Mislukte reservaties</h2>
     <table>
         <thead>
@@ -56,6 +56,10 @@
         </tr>
         </tbody>
     </table>
+</div>
+
+<div th:if="${misluktetxn.empty}">
+    <p>Er zijn geen mislukte reservaties</p>
 </div>
 
 </body>

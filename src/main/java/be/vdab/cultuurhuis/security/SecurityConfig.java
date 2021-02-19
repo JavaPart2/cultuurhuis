@@ -18,7 +18,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         var impl = new JdbcDaoImpl();
         impl.setDataSource(dataSource);
         impl.setUsersByUsernameQuery("select gebruikersnaam as username, paswoord as password" +
-                ", 'true' as enabled from klanten where gebruikersnaam = ?");
+                ", '1' as enabled from klanten where gebruikersnaam = ?");
 //        impl.setEnableAuthorities(false);
 //        SecurityContextHolder.getContext().setAuthentication(
 //                new UsernamePasswordAuthenticationToken(username, null, null));
@@ -35,7 +35,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception{
         http.formLogin(login -> login.loginPage("/login").defaultSuccessUrl("/bevestig"));
         http.authorizeRequests(requests -> requests
-                .mvcMatchers("/","/login","/genres/**","/reserveren/**","/mandje/**","/nieuweklant/**").permitAll()
+                .mvcMatchers("/","/login","/genres/**","/reserveren/**","/mandje/**"
+                        ,"/nieuweklant/**","/bevestig/**", "/overzicht/**").permitAll()
                 .mvcMatchers("/**").authenticated());
     }
 
