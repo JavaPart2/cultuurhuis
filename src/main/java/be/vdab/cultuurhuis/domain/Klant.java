@@ -15,10 +15,10 @@ public class Klant {
     private String postcode;
     private String gemeente;
     private String gebruikersnaam;
-    private String passwoord;
+    private String paswoord;
 
     public Klant(String voornaam, String familienaam, String straat, String huisnr, String postcode, String gemeente,
-                 String gebruikersnaam, String passwoord) {
+                 String gebruikersnaam, String paswoord) {
         this.voornaam = voornaam;
         this.familienaam = familienaam;
         this.straat = straat;
@@ -26,14 +26,46 @@ public class Klant {
         this.postcode = postcode;
         this.gemeente = gemeente;
         this.gebruikersnaam = gebruikersnaam;
-        this.passwoord = passwoord;
+        this.paswoord = paswoord;
     }
 
-    protected Klant() {
+    public Klant() {
     }
 
     public long getId() {
         return id;
+    }
+
+    public void setVoornaam(String voornaam) {
+        this.voornaam = voornaam;
+    }
+
+    public void setFamilienaam(String familienaam) {
+        this.familienaam = familienaam;
+    }
+
+    public void setStraat(String straat) {
+        this.straat = straat;
+    }
+
+    public void setHuisnr(String huisnr) {
+        this.huisnr = huisnr;
+    }
+
+    public void setPostcode(String postcode) {
+        this.postcode = postcode;
+    }
+
+    public void setGemeente(String gemeente) {
+        this.gemeente = gemeente;
+    }
+
+    public void setGebruikersnaam(String gebruikersnaam) {
+        this.gebruikersnaam = gebruikersnaam;
+    }
+
+    public void setPaswoord(String paswoord) {
+        this.paswoord = paswoord;
     }
 
     public String getVoornaam() {
@@ -64,7 +96,7 @@ public class Klant {
         return gebruikersnaam;
     }
 
-    public String getPasswoord() {
-        return passwoord;
+    public String getPaswoord() {
+        return paswoord;
     }
 }

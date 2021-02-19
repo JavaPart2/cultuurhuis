@@ -7,10 +7,10 @@
     <img src="images/bevestig.png" th:src="@{/images/bevestig.png}" alt="culthuis" >
 </h1>
 <h2>Stap 1: wie benje ?</h2>
-
+<p th:object="${klant}" th:text="|*{voornaam} *{familienaam} *{straat} *{huisnr} *{postcode} *{gemeente}|";
 <h2>Stap 2: bevestigen</h2>
-<form method="post" th:action="@{/bevestig}">
-    <button>bevestigen</button>
+<form method="post" th:action="@{/bevestig/{id} (id=${klant.id})">
+    <button>Bevestigen</button>
 </form>
 
 

@@ -32,6 +32,10 @@ public class Voorstelling {
     protected Voorstelling() {
     }
 
+    public void setVrijeplaatsen(int vrijeplaatsen) {
+        this.vrijeplaatsen = vrijeplaatsen;
+    }
+
     public long getId() {
         return id;
     }
