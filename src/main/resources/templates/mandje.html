@@ -12,7 +12,7 @@
     <form method="post" th:action="@{/mandje}">
         <table>
             <thead>
-                <tr style="background-color: moccasin">
+                <tr>
                     <th>Datum</th>
                     <th>Titel</th>
                     <th>Uitvoerders</th>
@@ -23,18 +23,19 @@
             </thead>
             <tbody>
                 <tr th:each="lijn:${mandjeform.getReserveerlijnen()}" th:object="${lijn.voorstelling}">
-                    <td th:text="*{datum}"></td>
+                    <td th:text="*{{datum}}"></td>
                     <td th:text="*{titel}"></td>
                     <td th:text="*{uitvoerders}"></td>
-                    <td class="prijs" th:text="*{{prijs}}"></td>
-                    <td th:text="${lijn.tePlaatsen}"></td>
-                    <td><input type="checkbox" name="ids" th:value="${lijn.voorstelling.id}"></td>
+                    <td class="rechtsaligneren" th:text="|€*{{prijs}}|"></td>
+                    <td class="rechtsaligneren" th:text="${lijn.tePlaatsen}"></td>
+                    <td><input style="text-align: center" type="checkbox" name="ids" th:value="${lijn.voorstelling.id}"></td>
                 </tr>
             </tbody>
         </table>
     </form>
     <div class="totaal">
-        <span>Te betalen: </span>
+        <br>
+        <span>Te betalen: €</span>
         <span th:text="${mandjeform.totaal}"></span>
     </div>
 </div>

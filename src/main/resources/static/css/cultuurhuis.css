@@ -1,22 +1,26 @@
 body {
     font-family: sans-serif;
-    background-color: moccasin;
+    background-color: white;
     color: #40111F;
+}
+
+div[class="reserveer"] > span{
+    font-weight: bold;
 }
 
 nav ul {
     padding: 0.4em 0;
-    background-color: moccasin;
+    background-color: white;
 }
 
 nav li {
     display: inline;
-    background-color: moccasin;
+    background-color: white;
 }
 
 nav li a {
     vertical-align: middle;
-    background-color: moccasin;
+    background-color: white;
     margin-right: 1em;
 }
 
@@ -24,19 +28,9 @@ nav li a:hover {
     color: lightblue;
 }
 
-ul {
-    list-style-type: none;
-    text-decoration: none;
-    width: 25em;
-}
-
-ul[class="fliflop"] > li a {
-    text-decoration: none;
-}
-
 label {
-    font-weight: bold;
-    margin-top: 0.9em;
+    display: block;
+    margin-top: 1em;
 }
 
 input, button {
@@ -49,26 +43,28 @@ table{
     background-color: transparent;
 }
 
-tfoot {
-    font-weight: bold;
+thead {
+    background-color: #fde45e;
 }
 
-.prijs {
+.rechtsaligneren {
     text-align: right;
 }
 
 tbody > tr:nth-child(even) {
-    background-color: gold;
+    background-color: #e3e2d2;
 }
 
 tbody > tr:nth-child(odd) {
-    background-color: lavender;
+    background-color: #f8f2b1;
 }
 
-ul[class="fliflop"] > li:nth-child(even){
-    background-color: gold;
+button > a{
+    text-decoration: none;
+    color: black;
 }
 
-ul[class="fliflop"] > li:nth-child(odd) {
-    background-color: lavender;
+.foutmelding{
+    font-weight: bold;
+    color: red;
 }

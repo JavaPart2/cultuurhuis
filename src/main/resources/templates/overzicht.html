@@ -12,7 +12,7 @@
     <h2>Gelukte reservaties</h2>
     <table>
         <thead>
-        <tr style="background-color: moccasin">
+        <tr>
             <th>Datum</th>
             <th>Titel</th>
             <th>Uitvoerders</th>
@@ -22,11 +22,11 @@
         </thead>
         <tbody>
         <tr th:each="lijn:${geluktetxn}" th:object="${lijn}">
-            <td th:text="*{datum}"></td>
+            <td th:text="*{{datum}}"></td>
             <td th:text="*{titel}"></td>
             <td th:text="*{uitvoerders}"></td>
-            <td class="prijs" th:text="*{{prijs}}"></td>
-            <td th:text="*{vrijeplaatsen}"></td>
+            <td class="rechtsaligneren" th:text="|€*{{prijs}}|"></td>
+            <td class="rechtsaligneren" th:text="*{vrijeplaatsen}"></td>
         </tr>
         </tbody>
     </table>
@@ -36,7 +36,7 @@
     <h2>Mislukte reservaties</h2>
     <table>
         <thead>
-        <tr style="background-color: moccasin">
+        <tr>
             <th>Datum</th>
             <th>Titel</th>
             <th>Uitvoerders</th>
@@ -47,12 +47,12 @@
         </thead>
         <tbody>
         <tr th:each="lijn:${misluktetxn}" th:object="${lijn.voorstelling}">
-            <td th:text="*{datum}"></td>
+            <td th:text="*{{datum}}"></td>
             <td th:text="*{titel}"></td>
             <td th:text="*{uitvoerders}"></td>
-            <td class="prijs" th:text="*{{prijs}}"></td>
-            <td th:text="${lijn.tePlaatsen}"></td>
-            <td th:text="*{vrijeplaatsen}"></td>
+            <td class="rechtsaligneren" th:text="|€*{{prijs}}|"></td>
+            <td class="rechtsaligneren" th:text="${lijn.tePlaatsen}"></td>
+            <td class="rechtsaligneren" th:text="*{vrijeplaatsen}"></td>
         </tr>
         </tbody>
     </table>

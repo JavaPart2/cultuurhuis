@@ -23,14 +23,14 @@ public class IndexController {
     @GetMapping
     public ModelAndView welkom(){
         ModelAndView modelAndView = new ModelAndView("index");
-        modelAndView.addObject("genres", genreRepository.findAll());
+        modelAndView.addObject("genres", genreRepository.findAllOrderByNaam());
         return modelAndView;
     }
 
     @GetMapping("/genres/{id}")
     public ModelAndView toonVoorstellingen(@PathVariable long id){
         ModelAndView modelAndView = new ModelAndView("index");
-        modelAndView.addObject("genres", genreRepository.findAll());
+        modelAndView.addObject("genres", genreRepository.findAllOrderByNaam());
         Genre gekozenGenre = genreRepository.findById(id).get();
         modelAndView.addObject("gekozengenre", gekozenGenre.getNaam());
         modelAndView.addObject("voorstellingen", voorstellingRepository.findByGenre(gekozenGenre));

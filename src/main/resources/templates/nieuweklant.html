@@ -38,5 +38,9 @@
     <button>OK</button>
 </form>
 
+<div class="foutmelding" th:if="${param.foutmelding}">
+    <span th:text="${param.foutmelding}"></span>
+</div>
+
 </body>
 </html>

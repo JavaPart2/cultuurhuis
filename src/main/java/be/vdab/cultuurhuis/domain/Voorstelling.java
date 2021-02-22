@@ -1,5 +1,8 @@
 package be.vdab.cultuurhuis.domain;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.NumberFormat;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -12,10 +15,12 @@ public class Voorstelling {
     private long id;
     private String titel;
     private String uitvoerders;
+    @DateTimeFormat(style = "SS")
     private LocalDateTime datum;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "genreid")
     private Genre genre;
+    @NumberFormat(pattern = "0.00")
     private BigDecimal prijs;
     private int vrijeplaatsen;
     private int versie;

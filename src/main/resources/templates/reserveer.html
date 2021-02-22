@@ -3,28 +3,19 @@
 <head th:replace="fragments::head(title='Cultuurhuis')"></head>
 <body>
 <nav th:replace="fragments::menu"></nav>
-<div th:object="${voorstelling}">
+<div class="reserveer" th:object="${voorstelling}">
     <h1 th:text="|*{titel} - *{uitvoerders}|">
         <img src="images/reserveren.png" th:src="@{/images/reserveren.png}" alt="culthuis" >
     </h1>
     <label>Voorstelling</label>
-    <br>
     <span th:text="*{titel}"></span>
-    <br>
     <label>Uitvoerders</label>
-    <br>
     <span th:text="*{uitvoerders}"></span>
-    <br>
     <label>Datum</label>
-    <br>
-    <span th:text="*{datum}"></span>
-    <br>
+    <span th:text="*{{datum}}"></span>
     <label>Prijs</label>
-    <br>
-    <span th:text="*{{prijs}}"></span>
-    <br>
+    <span th:text="|€ *{{prijs}}|"></span>
     <label>Vrije plaatsen</label>
-    <br>
     <span th:text="*{vrijeplaatsen}"></span>
     <br>
 
