@@ -1,6 +1,5 @@
 body {
     font-family: sans-serif;
-    background-color: white;
     color: #40111F;
 }
 
@@ -8,19 +7,20 @@ div[class="reserveer"] > span{
     font-weight: bold;
 }
 
+div[class="reserveer"] > h1{
+    display: inline;
+}
+
 nav ul {
     padding: 0.4em 0;
-    background-color: white;
 }
 
 nav li {
     display: inline;
-    background-color: white;
 }
 
 nav li a {
     vertical-align: middle;
-    background-color: white;
     margin-right: 1em;
 }
 
@@ -39,12 +39,8 @@ input, button {
     margin-top: 0.2em;
 }
 
-table{
-    background-color: transparent;
-}
-
 thead {
-    background-color: #fde45e;
+    background-color: #ffe86a;
 }
 
 .rechtsaligneren {

@@ -4,9 +4,8 @@
 <body>
 <nav th:replace="fragments::menu"></nav>
 <div class="reserveer" th:object="${voorstelling}">
-    <h1 th:text="|*{titel} - *{uitvoerders}|">
-        <img src="images/reserveren.png" th:src="@{/images/reserveren.png}" alt="culthuis" >
-    </h1>
+    <h1 th:text="|*{titel} - *{uitvoerders}|"></h1>
+    <img src="images/reserveren.png" th:src="@{/images/reserveren.png}" alt="culthuis" >
     <label>Voorstelling</label>
     <span th:text="*{titel}"></span>
     <label>Uitvoerders</label>
