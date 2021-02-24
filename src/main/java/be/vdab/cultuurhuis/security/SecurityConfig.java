@@ -20,7 +20,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         impl.setUsersByUsernameQuery("select gebruikersnaam as username, paswoord as password" +
                 ", true as enabled from klanten where gebruikersnaam = ?");
         impl.setAuthoritiesByUsernameQuery("select ?, 'gebruiker'");
-//        impl.setEnableAuthorities(false);
         return impl;
     }
 
